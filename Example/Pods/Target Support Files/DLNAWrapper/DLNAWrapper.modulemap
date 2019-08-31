@@ -1,0 +1,6 @@
+framework module DLNAWrapper {
+  umbrella header "DLNAWrapper-umbrella.h"
+
+  export *
+  module * { export * }
+}

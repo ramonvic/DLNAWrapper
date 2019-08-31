@@ -1,0 +1,52 @@
+{
+  "name": "DLNAWrapper",
+  "version": "0.1.0",
+  "summary": "Encapsulate DLNA function, implement simple video projection based on Upnp.",
+  "homepage": "https://github.com/ramonvic/DLNAWrapper",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ramon Vicente": "ramonvic@me.com"
+  },
+  "source": {
+    "git": "https://github.com/ramonvic/DLNAWrapper.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://twitter.com/Ram0nVic",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "DLNAWrapper/Classes/**/*",
+      "exclude_files": "DLNAWrapper/Classes/Libraries/**/GDataXMLNode.{h,m}",
+      "libraries": [
+        "icucore",
+        "c++",
+        "z",
+        "xml2"
+      ],
+      "xcconfig": {
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+      },
+      "dependencies": {
+        "CocoaAsyncSocket": [
+
+        ],
+        "DLNAWrapper/GDataXML": [
+
+        ]
+      }
+    },
+    {
+      "name": "GDataXML",
+      "requires_arc": false,
+      "source_files": "DLNAWrapper/Classes/Libraries/**/GDataXMLNode.{h,m}"
+    }
+  ]
+}
