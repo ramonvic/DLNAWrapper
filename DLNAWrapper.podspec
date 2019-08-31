@@ -22,18 +22,20 @@ Pod::Spec.new do |s|
     ss.source_files = 'DLNAWrapper/Classes/**/*'
     ss.exclude_files = non_arc_files
 
-    ss.libraries = 'icucore', 'c++', 'z', 'xml2'
-
-    ss.xcconfig = {
-      'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2',
-    }
+    ss.libraries = 'icucore', 'c++', 'z'
 
     ss.dependency 'CocoaAsyncSocket'
     ss.dependency 'DLNAWrapper/GDataXML'
   end
 
-  s.subspec 'GDataXML' do |ss|
-    ss.requires_arc = false
-    ss.source_files = non_arc_files
+  s.subspec 'GDataXML' do |sna|
+    sna.requires_arc = false
+    sna.source_files = non_arc_files
+
+    sna.libraries = 'xml2'
+
+    sna.xcconfig = {
+      'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2',
+    }
   end
 end
