@@ -1,6 +1,0 @@
-framework module Pods_DLNAWrapper_Tests {
-  umbrella header "Pods-DLNAWrapper_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
