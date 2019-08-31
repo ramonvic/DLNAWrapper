@@ -31,3 +31,4 @@ DerivedData/
 *.dSYM
 
 Pods/
+Podfile.lock
