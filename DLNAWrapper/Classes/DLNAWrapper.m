@@ -1,12 +1,12 @@
 //
-//  DLNAKit.m
-//  DLNAKit
+//  DLNAWrapper.m
+//  DLNAWrapper
 //
 //  Created by Ramon Silva on 31/08/19.
 //
 
 #import <UIKit/UIKit.h>
-#import "DLNAKit.h"
+#import "DLNAWrapper.h"
 #import "GDataXMLNode.h"
 #import "Reachability.h"
 
@@ -14,7 +14,7 @@
 #import "MediaControlService.h"
 #import "RenderingControlService.h"
 
-@interface DLNAKit ()
+@interface DLNAWrapper ()
 
 @property (nonatomic, strong) GCDAsyncUdpSocket                         *udpSocket;
 
@@ -32,15 +32,15 @@
 
 @end
 
-@implementation DLNAKit
+@implementation DLNAWrapper
 
 @synthesize delegate     = _delegate;
 @synthesize deviceDic    = _deviceDic;
 @synthesize reachability = _reachability;
 
 
-+ (DLNAKit *)sharedInstance {
-    static DLNAKit *instance = nil;
++ (DLNAWrapper *)sharedInstance {
+    static DLNAWrapper *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[self alloc] init];
@@ -54,7 +54,7 @@
 
     if (self) {
         _isSocketClosed = YES;
-        _queue = dispatch_queue_create("com.umobi.DLNAKit.queue", DISPATCH_QUEUE_SERIAL);
+        _queue = dispatch_queue_create("com.umobi.DLNAWrapper.queue", DISPATCH_QUEUE_SERIAL);
         _udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self
                                                    delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
 

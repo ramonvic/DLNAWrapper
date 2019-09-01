@@ -1,6 +1,6 @@
 //
-//  DLNAKit.h
-//  DLNAKit
+//  DLNAWrapper.h
+//  DLNAWrapper
 //
 //  Created by Ramon Silva on 31/08/19.
 //
@@ -12,15 +12,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DLNAKit : NSObject<GCDAsyncUdpSocketDelegate>
+@interface DLNAWrapper : NSObject<GCDAsyncUdpSocketDelegate>
 
 @property (nonatomic, weak) id<DeviceChangeDelegate> delegate;
 
 /**
- Get DLNAKit instance
+ Get DLNAWrapper instance
  @return DLNAUpnpServer instance
  */
-+ (DLNAKit *)sharedInstance;
++ (DLNAWrapper *)sharedInstance;
 
 /**
  Start the Upnp service, the device is not searched by default.
