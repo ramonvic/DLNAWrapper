@@ -70,6 +70,16 @@
     self.successCallback = successBlock;
     
     self.failureCallback = failureBlock;
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString: uri]
+                                                           cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.0];
+    [request setHTTPMethod:@"HEAD"];
+    NSURLResponse *response = nil;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    NSURL *finalURL = response.URL;
+    if (finalURL.absoluteString != self.uri) {
+        self.uri = finalURL.absoluteString;
+    }
     
     return self;
 }

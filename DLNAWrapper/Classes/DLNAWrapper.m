@@ -129,13 +129,16 @@
 - (void)search
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+        if(self.delegate) {
+            [self.delegate onSearchStarted];
+        }
 
         // Clear the device list before searching to prevent the old device from remaining when the LAN changes.
         [self.deviceDic removeAllObjects];
 
         if (self.delegate)
         {
-            [self.delegate onChange];
+            [self.delegate onChangeDeviceList];
 
         }
 
@@ -324,7 +327,7 @@
 
         if (self.delegate)
         {
-            [self.delegate onChange];
+            [self.delegate onChangeDeviceList];
         }
 
     });
@@ -343,7 +346,7 @@
 
         if (self.delegate)
         {
-            [self.delegate onChange];
+            [self.delegate onChangeDeviceList];
         }
 
     });

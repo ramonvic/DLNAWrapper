@@ -10,6 +10,7 @@
 
 @protocol DeviceChangeDelegate <NSObject>
 
-- (void)onChange;
+- (void)onSearchStarted;
+- (void)onChangeDeviceList;
 
 @end
